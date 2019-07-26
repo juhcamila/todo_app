@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # TodoApp
 
 To start your Phoenix server:
@@ -21,5 +20,6 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   * Source: https://github.com/phoenixframework/phoenix
 =======
 # todo_app
+
 Crud tarefas desenvolvido através de um curso da Udemy
->>>>>>> 08f84101f888078d1881cf9cf58426c44176dfe6
+
