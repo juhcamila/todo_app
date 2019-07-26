@@ -3,17 +3,19 @@
 
     <ul class="collection">
         <%= for tarefa <- @tarefas do %>
-            <li class="collection-item">
-            <%= gettext "Tarefa: %{tarefa} - status: %{pronta}", tarefa: tarefa.titulo, pronta: tarefa.pronta %>
-            <div class="secondary-content">
-            <%= link to: Routes.tarefa_path(@conn, :edit, tarefa) do %>
-                <i class="material-icons">edit</i>
+            <%= if @conn.assigns.user.id == tarefa.usuario_id do %>
+                <li class="collection-item">
+                <%= gettext "Tarefa: %{tarefa} - status: %{pronta}", tarefa: tarefa.titulo, pronta: tarefa.pronta %>
+                <div class="secondary-content">
+                <%= link to: Routes.tarefa_path(@conn, :edit, tarefa) do %>
+                    <i class="material-icons">edit</i>
+                <% end %>
+                <%= link to: Routes.tarefa_path(@conn, :delete, tarefa), method: :delete do %>
+                    <i class="material-icons">delete</i>
+                <% end %>
+                </div>
+                </li>
             <% end %>
-            <%= link to: Routes.tarefa_path(@conn, :delete, tarefa), method: :delete do %>
-                <i class="material-icons">delete</i>
-            <% end %>
-            </div>
-            </li>
         <% end %>
     </ul>
 
